@@ -90,11 +90,19 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
+      <AdditionalUsingDirectories>C:\Users\Andrew\Documents\Repositories\HockeyEditor\HockeyEditor\bin\Release;C:\Users\Andrew\Documents\Repositories\YSE\include</AdditionalUsingDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Andrew\Documents\Repositories\YSE\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies />
+      <AdditionalDependencies>C:\Users\Andrew\Documents\Repositories\YSE\lib\dll\libyse32.lib</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
+    <PostBuildEvent>
+      <Command>copy C:\Users\Andrew\Documents\Repositories\YSE\lib\dll\libyse32.dll C:\Users\Andrew\Documents\Repositories\HQMSound\Debug\</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Add DLL</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -129,6 +137,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Reference Include="HockeyEditor">
+      <HintPath>..\..\HockeyEditor\HockeyEditor\bin\Release\HockeyEditor.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -137,6 +148,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="HQMSound.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
